@@ -1,0 +1,124 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+	<title>Doctor</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../Wello-2cm.ico">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="DoctorLanding.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
+	<!--The Material Design Lite -->
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.teal-red.min.css">
+      <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
+
+	<!-- Jquery CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+		<script>
+		$(document).ready(function() {
+			$("#reset").hide();
+			$("#cont").click(function(){
+				$("#connect").hide();
+				$("#reset").show();
+			});
+			$("#rest").click(function(){
+				$("#reset").hide();
+				$("#connect").show();
+			});
+		});
+	</script>
+</head>
+<body>
+
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="pull-left"><a href="#" id="WelloLogo"><img src="../WelloLogoOnWebPage.png"></a></li>
+				<li class="header"><a>Dr. Roy's Video Consultation Room</a></li>
+				<li class="pull-right" style="padding-top: 12px;"> &nbsp; &nbsp; &nbsp; <button class="btn btn-primary btn-sm" onclick="window.location.href='DoctorLogin.html'">LOGOUT</button>
+				<li class="pull-right" style="padding-top: 12px;"> &nbsp; &nbsp; &nbsp; <button type="submit" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-refresh" /></button></li>
+
+				<li class="pull-right">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="padding-top: 10px">
+					 <select class="form-control">
+					 <option value="Today">Today</option>
+					 <option value="Next One Week">Next Seven Days</option>
+					 <option value="All">All Upcoming</option>
+					 </select>
+				 </div>
+			 </li>
+
+			  </ul>
+		</div>
+	</div>
+	</nav>
+
+		<div class="container-fluid" style="padding-top: 80px;">
+			<div class="well">
+			<table class="table table-bordered table-responsive table-hover sortable" id="myTable" cellspacing="0">
+				<thead>
+					<tr>
+						<th>Patient ID</th>
+						<th>Patient Name</th>
+						<th>Appointment Id</th>
+						<th>Contact Number</th>
+						<th>Date and Time</th>
+						<th width="225px">Session</th>
+						<th>View Record</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>100025</td>
+						<td>Manish S B &nbsp; <span class="fa fa-video-camera" /></td>
+						<td>200012</td>
+						<td>9870563210</td>
+						<td>09/07/2017 05:30 PM</td>
+						<td>
+							<div align="center" id="connect">
+								<button class="btn btn-success btn-xs" id="cont">Connect to Session</button>
+							</div>
+							<div id="reset">
+								<span class="fa fa-check-square-o"><font face="helvetica" color="black"> Connected &nbsp; &nbsp; &nbsp;</font></span>
+								<button class="btn btn-danger btn-xs" id="rest">Reset Session</button>
+							</div>
+						</td>
+						<td><a href="" class="record" target="_blank">View</a></td>
+					</tr>
+					<tr>
+						<td>100024</td>
+						<td>Mahesh M</td>
+						<td>200013</td>
+						<td>9874463210</td>
+						<td>08/06/2017 05:30 PM</td>
+						<td>
+						</td>
+						<td><a href="" class="record" target="_blank">View</a></td>
+					</tr>
+					<tr>
+						<td>100023</td>
+						<td>Dushmant Kumar Pati</td>
+						<td>200011</td>
+						<td>9874563910</td>
+						<td>09/06/2017 06:30 PM</td>
+						<td>
+						</td>
+						<td><a href="" class="record" target="_blank">View</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</body>
+</html>

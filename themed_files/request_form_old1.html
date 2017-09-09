@@ -1,0 +1,179 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Kiosk</title>
+		<link rel="shortcut icon" type="image/x-icon" href="../Wello-2cm.ico">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- jquery CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <!--The Material Design Lite -->
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.teal-red.min.css">
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="request_form.css">
+
+	<script>
+	$(document).ready(function() {
+      $('[data-toggle="tooltip"]').tooltip();
+			$('#fileSubmit').click(function(){
+				var fileName = $('#fileName').val();
+				var count = fileName.lastIndexOf(\)
+				var fileDesc = $('#fileDesc').val();
+				if(fileName != ""){
+					$("#fileTable tbody").append("<tr><td>"+fileName+"</td><td>"+fileDesc+"</td><td>Pending</td></tr>");
+					$('#fileName').val("");
+					$('#fileDesc').val("");
+				}
+			});
+  });
+	</script>
+	</head>
+
+<body>
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="pull-left"><img src="../WelloLogoOnWebPage.png" id="WelloLogo"></li>
+				<li class="header">Request Form</li>
+        <li class="pull-right" style="padding-top: 5px;"> &nbsp; &nbsp; &nbsp; <button type="button" class="btn btn-primary" onclick="window.location.href='KioskLogin.html'">LOGOUT</button></li>
+				<li class="pull-right" style="padding-top: 5px;"> &nbsp; &nbsp; &nbsp; <button type="button" class="btn btn-primary" onclick="window.location.href='KioskLanding2.html'">Today's Appointments</button></li>
+        <li class="pull-right" style="padding-top: 15px">
+					<span class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="KioskID: 100036"></span></li>
+				</ul>
+		</div>
+	</div>
+	</nav>
+
+	<div class="container" style="padding-top: 70px;">
+      <div class="row">
+          <div class="col-md-1 col-sm-1 col-xs-0"></div>
+          <div class="col-md-10 col-sm-10 col-xs-12 well">
+              <h4>  Patient's Information </h4>
+              <div class="patientInfo">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" />
+                  <label class="mdl-textfield__label" >Patient's Name *</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="number" />
+                  <label class="mdl-textfield__label" >Patient's Contact Number *</label>
+                </div>
+                <br/>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="email" />
+                  <label class="mdl-textfield__label" >Patient's Email ID</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mini">
+                  <input class="mdl-textfield__input" type="number" />
+                  <label class="mdl-textfield__label" >Age *</label>
+                </div>
+
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" style="padding-right:50px;">
+        					<input class="mdl-radio__button " type="radio" name="gender" id="male" value="male" >
+        					<span class="mdl-radio__label">Male</span>
+        				</label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+        					<input class="mdl-radio__button " type="radio" name="gender" id="female" value="female" >
+        					<span class="mdl-radio__label">Female</span>
+        				</label>
+          </div>
+
+          <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="number" value="9898989898" readonly/>
+            <label class="mdl-textfield__label" >Kiosk's Mobile Number *</label>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="email" value="kiosk@gmail.com" readonly/>
+            <label class="mdl-textfield__label" >Kiosk's Email ID *</label>
+          </div> -->
+          <br/>
+					<div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%">
+             <textarea class="mdl-textfield__input" type="text" rows= "3" ></textarea>
+             <label class="mdl-textfield__label">Chief Complaint/Your Question/Query *</label>
+          </div>
+					<div class="col-md-3">
+						<button class="btn btn-primary btn-bg" data-toggle="modal" data-target="#fileUpload">Choose Files to Upload</button>
+					</div>
+					<div class="col-md-9">
+					<table class="table table-bordered table-responsive table-hover sortable" id="fileTable" cellspacing="0">
+						<thead>
+							<tr><th>Name</th>
+									<th>Description</th>
+									<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+				</div>
+
+				<div class="modal fade" id="fileUpload" role="dialog">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				        <h4 class="modal-title">Files to Upload</h4>
+				      </div>
+				      <div class="modal-body">
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 250px">
+	                <input class="mdl-textfield__input" type="file" id="fileName"/>
+	                <label class="mdl-textfield__label" ></label>
+	              </div>
+								<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 250px">
+			             <input class="mdl-textfield__input" type="text" id="fileDesc"></input>
+			             <label class="mdl-textfield__label">Description</label>
+			          </div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-primary" id="fileSubmit">Save changes</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
+				</div>
+          <h4>  Vitals </h4>
+          <div class="vitals">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mini">
+                <input class="mdl-textfield__input" type="number"/>
+                <label class="mdl-textfield__label" >Weight *</label>
+              </div>Kgs &nbsp; &nbsp; &nbsp;
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mini">
+                <input class="mdl-textfield__input" type="number"/>
+                <label class="mdl-textfield__label" >Height *</label>
+              </div>Cms &nbsp; &nbsp; &nbsp;
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mini">
+                <input class="mdl-textfield__input" type="number"/>
+                <label class="mdl-textfield__label" >Temperature *</label>
+              </div>F &nbsp; &nbsp; &nbsp;
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label med">
+                <input class="mdl-textfield__input" type="number"/>
+                <label class="mdl-textfield__label" >Blood Pressure *</label>
+              </div>mmHG &nbsp; &nbsp; &nbsp;
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label med">
+                <input class="mdl-textfield__input" type="number"/>
+                <label class="mdl-textfield__label" >Sugar Level *</label>
+              </div>mmol/L
+        </div>
+        <center><button type="submit" class="btn btn-primary btn-lg">Mobile Verification</button></center>
+          <div class="col-md-1 col-sm-1 col-xs-0"></div>
+      </div>
+	</div>
+
+	</body>
+</html>

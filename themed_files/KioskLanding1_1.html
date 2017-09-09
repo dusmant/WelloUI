@@ -1,0 +1,95 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Kiosk</title>
+		<link rel="shortcut icon" type="image/x-icon" href="../Wello-2cm.ico">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- jquery CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<!-- Multi Select-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" type="text/css" href="KioskLanding1.css">
+
+	<script>
+	$(document).ready(function() {
+	 $('[data-toggle="tooltip"]').tooltip();
+	$('#languages').multiselect({
+		nonSelectedText: 'Select Language'
+	});
+	var last_valid_selection = null;
+	 $('#languages').on('change', function() {
+		 var $sel = $(this).find(':selected');
+		 if ($sel.length < 4) {
+			  $sel.addClass('selected');
+				$(this).find(':not(:selected)').removeClass('selected');
+			}else {
+				$(this) .find(':selected:not(.selected)') .prop('selected', false);
+			}
+		});
+	});
+	</script>
+	</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="pull-left"><img src="../WelloLogoOnWebPage.png" id="WelloLogo"></li>
+				<li class="header">Take Appointment</li>
+				<li class="pull-right" style="padding-top: 5px;"> &nbsp; &nbsp; &nbsp; <button type="button" class="btn btn-primary" onclick="window.location.href='KioskLogin.html'">LOGOUT</button></li>
+				<li class="pull-right" style="padding-top: 5px;"> &nbsp; &nbsp; &nbsp; <button type="button" class="btn btn-primary" onclick="window.location.href='KioskLanding2.html'">Today's Appointments</button></li>
+				<li class="pull-right" style="padding-top: 15px">
+					<span class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="KioskID: 100036"></span></li>
+			</ul>
+		</div>
+	</div>
+	</nav>
+
+		<div class="container sea" align="center" >
+		  <div class="sw">
+			<form action="kiosk_result.html">
+				<div class="form-group" >
+					<select id="languages" class="multiselect-ui form-control" name="languages[]" multiple>
+						<option value="English">English</option>
+						<option value="Hindi">Hindi</option>
+						<option value="Kannada">Kannada</option>
+						<option value="Malayalam">Malayalam</option>
+						<option value="Marathi">Marathi</option>
+						<option value="Odiya">Odiya</option>
+						<option value="Tamil">Tamil</option>
+						<option value="Telugu">Telugu</option>
+					</select>
+				</div>
+			  <input type="text" class="search form-group" id="search_bar" list="docs" placeholder="Speciality Or Doctor's Name..." >
+				 <button type="button" class="go form-group entypo-search" onclick="window.location.href='kiosk_result.html'"></button>
+					<datalist id="docs">
+					<option value="General Doctor(MBBS)"><span class="list-group-item">Hello</span>
+							General Doctor(MBBS)</option>
+					<option value="Medicine Specialist(MD)" >Medicine Specialist(MD)</option>
+					<option value="Diabetology" >Diabetology</option>
+					<option value="Cardiology" >Cardiology</option>
+					<option value="Gynacology" >Gynacology</option>
+					<option value="Ophthalmology" >Ophthalmology</option>
+					<option value="Oncology" >Oncology</option>
+					<option value="Psychology" >Psychology</option>
+					<option value="Neurology" >Neurology</option>
+					</datalist>
+
+			</form>
+		  </div>
+		</div>
+
+	</body>
+</html>

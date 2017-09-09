@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kiosk Login</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<!--The Material Design Lite -->
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.teal-red.min.css">
+      <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+			<!-- Jquery CDN -->
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	  <link rel="stylesheet" type="text/css" href="Kiosk.css">
+
+		<script>
+		$(document).ready(function(){
+			$("#subm").attr("disabled", true);
+			$("#kioskId").on('keydown blur',function(){
+				if(($(this).val() != "") && ($("#kioskPwd").val() != "")){
+						$("#subm").attr("disabled", false);
+					}
+					else{
+						$("#subm").attr("disabled", true);
+				  }
+			});
+			$("#kioskPwd").on('keydown blur',function(){
+				if(($(this).val() != "") && ($("#kioskId").val() != "")){
+						$("#subm").attr("disabled", false);
+					}
+					else{
+						$("#subm").attr("disabled", true);
+				  }
+			});
+		});
+		</script>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-12">
+			<p class="spacing"></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 col-sm-3 col-xs-2"></div>
+		<div class="col-md-4 col-sm-6 col-xs-8 well">
+			<h3>Kiosk Sign In</h3>
+
+			<form action="KioskLanding1.html" class="form-inline" method="POST">
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<label class="mdl-textfield__label" for="kioskId">Mobile Number</label>
+					<input class="mdl-textfield__input" type="number" name="kiosk" id="kioskId" ></input>
+				</div>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<label class="mdl-textfield__label" for="kioskPwd" >Password</label>
+					<input type="password" class="mdl-textfield__input" id="kioskPwd" name="kioskPwd" >
+				</div>
+				<p></p>
+				<button type="button" onclick="window.location.href='wello.html'" class="btn btn-default btnspace"> Cancel </button>
+				<button type="submit" id="subm" class="btn btn-primary"> Login </button>
+			</form>
+			<a class="forpas" href="kioforgotpassword.html">Forgot Password?</a>
+		</div>
+		<div class="col-md-4 col-sm-3 col-xs-2"></div>
+	</div>
+</body>
+</html>

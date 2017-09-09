@@ -1,0 +1,145 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
+
+[class*="entypo-"]:before {
+  /*font-family: 'entypo', sans-serif;*/
+}
+
+
+
+.sea{
+  display: block;
+  width: 70%;
+  margin: 20px auto 0 auto;
+  padding-top: 22%;
+}
+
+.sw {
+  width: 100%;
+  height: 0px;
+
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+
+}
+.sw form {
+  float: left;
+  width: 100%;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+.sw a.logo {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+  width: auto;
+  height: 100%;
+  max-width: 80px;
+  margin-right: 10px;
+  -webkit-transition: all 0.05s ease-in-out;
+  transition: all 0.05s ease-in-out;
+  visibility: visible;
+  opacity: 1;
+  background-image: url("https://gmrui.com/img/logo.png");
+  background-position: 0 center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.sw a.logo img {
+  max-width: 100%;
+  width: auto;
+}
+.sw .search {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background: #fff;
+  padding-left: 35px;
+  /*font-family: 'Roboto', sans-serif;*/
+  height: 50px;
+  border-style: solid;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-color: #32cd32 ;
+  -webkit-appearance: none;
+}
+
+
+
+.sw .search:focus {
+  border-style: solid;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+  border-right-width: 0px;
+  border-color: green;
+
+}
+
+.sw input:focus + button{
+  border-style: solid;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 0px;
+  border-right-width: 2px;
+  border-color: green;
+}
+
+.sw input:focus + .go + a.logo {
+  visibility: hidden;
+  opacity: 0;
+  padding: 1px;
+  border-style: solid;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 0px;
+  border-right-width: 2px;
+  border-color: green;
+}
+.sw .go {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  max-width: 50px;
+  display: inline-block;
+  border: none;
+  background: #fff;
+  color: #ccc;
+  height: 50px;
+  padding: 1px;
+  font-size: 21px;
+  outline: none;
+  border-style: solid;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 0px;
+  border-right-width: 1px;
+  border-color: #32cd32;
+}

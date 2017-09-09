@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sign Up to Wello</title>
+
+	<meta charset="utf-8">
+	  <link rel="shortcut icon" type="image/x-icon" href="../Wello-2cm.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+      <!--The Material Design Lite -->
+      <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.teal-red.min.css">
+      <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <!-- custom css file -->
+	  <link rel="stylesheet" type="text/css" href="SignUp.css">
+	  <!-- Jquery CDN -->
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	  <script>
+		$(document).ready(function(){
+			$("#kiocitydiv").hide();
+			$("#kiomobdiv").hide();
+			$("#kioemaildiv").hide();
+			$("#doctor").attr("checked", true);
+			document.getElementById("subm").onclick = function(){
+				// alert('HI');    testing only
+				var result = $('input[type=radio][name=signUpAs]:checked').val();
+				if(result=="doctor"){
+					var user = $("#docuserId").val();
+					var othr = $("#docMciNumber").val();
+					var sele = $("#docdeptsel").val();
+					if((user == "") || (othr == "") || (sele == ""))
+					{
+						alert("Enter");
+						return false;
+					}
+				}
+				if(result=="kiosk"){
+					alert('HI');
+				}
+			};
+			$("#doctor").click(function(){
+				$("#kiocitydiv").hide();
+				$("#kiomobdiv").hide();
+				$("#docmcidiv").show();
+				$("#docemaildiv").show();
+				$("#docdeptdiv").show();
+				$("#kioemaildiv").hide();
+				var myCheckbox = document.getElementById('docuserId');
+				myCheckbox.parentElement.MaterialTextfield.change("");
+				var myCheckbox = document.getElementById('docMciNumber');
+				myCheckbox.parentElement.MaterialTextfield.change("");
+				var myCheckbox = document.getElementById('docdeptsel');
+				myCheckbox.parentElement.MaterialTextfield.change("");
+				var myCheckbox = document.getElementById('iAccept');
+				myCheckbox.parentElement.MaterialCheckbox.uncheck();
+				document.getElementById("docselabel").innerHTML = "Select your Specialization";
+			});
+			$("#kiosk").click(function(){
+				$("#kiocitydiv").show();
+				$("#docmcidiv").hide();
+				$("#kiomobdiv").show();
+				$("#docemaildiv").hide();
+				$("#docdeptdiv").hide();
+				$("#kioemaildiv").show();
+				var myCheckbox = document.getElementById('kiomobile');
+				myCheckbox.parentElement.MaterialTextfield.change("");
+				var myCheckbox = document.getElementById('userkioEmaiIdId');
+				myCheckbox.parentElement.MaterialTextfield.change("");
+				var myCheckbox = document.getElementById('kiocitysel');
+				myCheckbox.parentElement.MaterialTextfield.change("");
+				var myCheckbox = document.getElementById('kioiAccept');
+				myCheckbox.parentElement.MaterialCheckbox.uncheck();
+				document.getElementById("kioselabel").innerHTML = "Select your City";
+			});
+			$("select").change(function(){
+				if(document.getElementById("docdeptsel").value == ""){
+					document.getElementById("docselabel").innerHTML = "Select your Specialization";
+				}
+				else {
+					document.getElementById("docselabel").innerHTML = "Selected Specialization";
+				}
+				if(document.getElementById("kiocitysel").value == ""){
+					document.getElementById("kioselabel").innerHTML = "Select your City";
+				}
+				else {
+					document.getElementById("kioselabel").innerHTML = "Selected City";
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-12">
+			<p class="spacing"></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3 col-sm-3 col-xs-2"></div>
+		<div class="col-md-6 col-sm-6 col-xs-8 well">
+			<h3>Sign up for Wello Service </h3>
+			<p>Please select, what do you want to sign-up as?</p>
+		<form action="ValidateRegister.html" id="myform" class="form-inline" method="POST">
+			<div>
+				<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+					<input type="radio" class="mdl-radio__button" name="signUpAs" id="doctor" value="doctor" >
+					<span class="mdl-radio__label radspace">Doctor</span>
+				</label>
+				<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+					<input class="mdl-radio__button " type="radio" name="signUpAs" id="kiosk" value="kiosk" >
+					<span class="mdl-radio__label">Kiosk</span>
+				</label>
+			</div>
+
+
+			<div>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="kiomobdiv">
+					<input class="mdl-textfield__input" type="number" name="mobile" minlength=9 size=13 id="kiomobile" />
+					<label class="mdl-textfield__label">Mobile Number</label>
+				</div>
+
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="kioemaildiv">
+					<input class="mdl-textfield__input" type="email" name="kiouserEmaiId" id="userkioEmaiIdId">
+					<label class="mdl-textfield__label">Email-Id(Optional)</label>
+				</div>
+
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="docemaildiv">
+					<input class="mdl-textfield__input" type="email" name="userEmaiId" id="docuserId" >
+					<label class="mdl-textfield__label">Email-Id</label>
+					<!--<label class="mdl-textfield__error" id="docemailerr">Enter</label>-->
+				</div>
+
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="docmcidiv" >
+					<input class="mdl-textfield__input" type="number" name="MCIRegNumber" id="docMciNumber">
+					<label class="mdl-textfield__label">MCI Reg. Number </label>
+				</div>
+
+				<!--<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+					<input class="mdl-textfield__input" type="password"  name="userPwd" id="userPasswd" minlength="6" maxlength="16" size="20" >
+					<label class="mdl-textfield__label" >Password </label>
+				</div>
+
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<input class="mdl-textfield__input" type="password" name="ReUserPwd" id="RePasswd" minlength="6" maxlength="16" size="20" >
+					<label class="mdl-textfield__label">Re-enter password </label>
+				</div>-->
+
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="kiocitydiv" >
+					<select class="mdl-textfield__input" type="text" name="city" id="kiocitysel" >
+						<option value=""></option>
+						<option value="Bagalkot">Bagalkot</option>
+						<option value="Belgaum">Belgaum</option>
+						<option value="Bellary">Bellary</option>
+						<option value="Bengaluru">Bengaluru</option>
+						<option value="Bhadravati">Bhadravati</option>
+						<option value="Bidar">Bidar</option>
+						<option value="Bijapur">Bijapur</option>
+						<option value="Chikmagalur">Chikmagalur</option>
+						<option value="Chitradurga">Chitradurga</option>
+						<option value="Davanagere">Davanagere</option>
+						<option value="Gadag">Gadag</option>
+						<option value="Gangawati">Gangawati</option>
+						<option value="Gulbarga">Gulbarga</option>
+						<option value="Hassan">Hassan</option>
+						<option value="Hospet">Hospet</option>
+						<option value="Hubli">Hubli</option>
+						<option value="Kolar">Kolar</option>
+						<option value="Mandya">Mandya</option>
+						<option value="Mangalore">Mangalore</option>
+						<option value="Mysore">Mysore</option>
+						<option value="Raichur">Raichur</option>
+						<option value="Robertson Pet">Robertson Pet</option>
+						<option value="Shimoga">Shimoga</option>
+						<option value="Tumkur">Tumkur</option>
+						<option value="Udupi">Udupi</option>
+					</select>
+					<label class="mdl-textfield__label" id="kioselabel">Select Your City </label>
+					<br/>
+					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+						<input class="mdl-checkbox__input" type="checkbox" name="IAccept" id="kioiAccept" />
+						<span class="mdl-checkbox__label ita">I accept the <a href="TNC.html" target="_blank">terms & conditions</a> of Wello</span>
+					</label>
+				</div>
+
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" for="doctordept" id="docdeptdiv">
+					<select name="DoctorDept" class="mdl-textfield__input" id="docdeptsel">
+						<option value=""></option>
+						<option value="General Doctor(MBBS)" >General Doctor(MBBS)</option>
+						<option value="Medicine Specialist(MD)" >Medicine Specialist(MD)</option>
+						<option value="Diabetology" >Diabetology</option>
+						<option value="Cardiology" >Cardiology</option>
+						<option value="Gynacology" >Gynacology</option>
+						<option value="Ophthalmology" >Ophthalmology</option>
+						<option value="Oncology" >Oncology</option>
+						<option value="Psychology" >Psychology</option>
+						<option value="Neurology" >Neurology</option>
+					</select>
+					<label class="mdl-textfield__label" id="docselabel">Select your Specialization</label>
+
+					<br/>
+					<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+						<input class="mdl-checkbox__input" type="checkbox" name="IAccept" id="iAccept" />
+						<span class="mdl-checkbox__label ita">I accept the <a href="TNC.html" target="_blank">terms & conditions</a> of Wello</span>
+					</label>
+
+				</div>
+			</div>
+
+			<p></p>
+			<button type="button" onclick="window.location.href='wello.html'"class="btn btn-default btnspace" >Cancel</button>
+			<button type="submit" class="btn btn-primary" id="subm">Submit</button>
+		</form>
+	</div>
+	<div class="col-md-3 col-sm-3 col-xs-2"></div>
+</div>
+</body>
+</html>

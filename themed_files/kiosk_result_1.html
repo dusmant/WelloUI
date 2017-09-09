@@ -1,0 +1,141 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Kiosk</title>
+		<link rel="shortcut icon" type="image/x-icon" href="../Wello-2cm.ico">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- jquery CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<!-- Multi Select-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="style.css"> -->
+	<link rel="stylesheet" type="text/css" href="kiosk_result.css">
+
+	<script>
+	$(document).ready(function() {
+		$('[data-toggle="tooltip"]').tooltip();
+		var date = new Date();
+		var month = new Array();
+		month[0] = "Jan";
+		month[1] = "Feb";
+		month[2] = "March";
+		month[3] = "April";
+		month[4] = "May";
+		month[5] = "June";
+		month[6] = "July";
+		month[7] = "Aug";
+		month[8] = "Sept";
+		month[9] = "Oct";
+		month[10] = "Nov";
+		month[11] = "Dec";
+		date = new Date(date.getTime() + 24*60*60*1000);
+		for(var i=0;i<5;i++){
+				date = new Date(date.getTime() + 24*60*60*1000);
+				var dd = date.getDate();
+				var mm = month[date.getMonth()];
+				$("#days")[0].options.add( new Option(dd+" "+mm , dd+" "+mm) );
+		}
+
+		// on load to select first slot
+	var temp = $('#appoint_time').children('a:first').text();
+	if(temp){
+		temp = "Appointment Time at " + temp + " (Click to select another time slot)";
+		$('#appoint_text').val(temp);
+	}
+	// if no slots are empty
+	else{
+		$('#appoint_text').val("No Slots for the Doctor at the selected Date");
+	}
+	// hiding appointments
+	$('#appoint_time').hide();
+	// multiselect enabling
+	$('#days').multiselect({
+			nonSelectedText: 'Select day'
+	});
+	// displaying the Appointment slots
+	$('#appoint_text').focus(function(){
+		$('#appoint_time').slideDown("fast");
+		// var d = new Date();
+		// alert(d);
+	});
+	// hiding the Appointment slots
+	$('#appoint_time').children('.btn-info').on('click',function(){
+		// inputting into textbox (id: appoint_text)
+		var temp = $(this).text();
+		temp = "Appointment Time at " + temp + " (Click to select another time slot)";
+		$('#appoint_text').val(temp);
+		$('#appoint_time').slideUp("fast");
+
+	});
+	});
+	</script>
+	</head>
+
+<body>
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="pull-left"><img src="../WelloLogoOnWebPage.png" id="WelloLogo"></li>
+				<li class="header">Book an Appointment</li>
+				<li class="pull-right" style="padding-top: 5px;"> &nbsp; &nbsp; &nbsp; <button type="button" class="btn btn-primary" onclick="window.location.href='KioskLogin.html'">LOGOUT</button></li>
+				<li class="pull-right" style="padding-top: 5px;"> &nbsp; &nbsp; &nbsp; <button type="button" class="btn btn-primary" onclick="window.location.href='KioskLanding2.html'">Today's Appointments</button></li>
+				<li class="pull-right" style="padding-top: 15px">
+					<span class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="KioskID: 100036"></span></li>
+				</ul>
+		</div>
+	</div>
+	</nav>
+
+	<div class="container" style="padding-top: 70px;">
+		<div class="row d_profile well">
+			<div class="col-md-3">
+			<img src="images.jpg" float="left" style="padding: 10px; border: 1px solid black">
+			</div>
+			<div class="col-md-9">
+				<h4>Dr. Dinesh Gowda </h4>
+				<p>MBBS,DDVL</p>
+				<p>Dermatology and Trichology</p>
+				<p>Senior Dermato-Surgeon ( Super Specialist in Hair Transplant )</p>
+			</div>
+		</div>
+		</div>
+
+		<div class="container sea" align="center">
+		  <div class="sw">
+			<form action="request_form.html">
+				<div class="form-group" >
+					<select id="days" class="multiselect-ui form-control" name="days" >
+						<option value="Today">Today</option>
+						<option value="Tomorrow">Tomorrow</option>
+					</select>
+				</div>
+				  <input type="text" readonly class="search form-group" id="appoint_text" list="docs" placeholder="12:30pm to 7:00pm (Each Appointment 15min)" />
+					<button type="submit" class="go form-group entypo-search">OK</button>
+			</form>
+		</div>
+		<div id="appoint_time" class="btn-group" style="padding: 2px; padding-left: 30%">
+			<a class="btn btn-info"> 03:30pm </a>
+			<a class="btn btn-info"> 03:45pm </a>
+			<a class="btn btn-info"> 04:00pm </a>
+			<a class="btn btn-info"> 04:15pm </a>
+			<a class="btn btn-info"> 04:30pm </a>
+			<a class="btn btn-info"> 04:45pm </a>
+			<a class="btn btn-info"> 05:00pm </a>
+			<a class="btn btn-info"> 05:15pm </a>
+			<a class="btn btn-info"> 05:30pm </a>
+		</div>
+
+	</body>
+</html>

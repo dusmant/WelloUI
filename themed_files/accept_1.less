@@ -1,0 +1,104 @@
+@import "bootstrap/bootstrap.less";
+@import "spacelab/bootswatch.less";
+@import "spacelab/variables.less";
+
+
+html{
+  height: 100%;
+}
+
+@btn-default-bg: white;
+
+label{
+  font-weight: 500;
+}
+
+body{
+  background-image: url(../signupbgd.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+textarea
+{
+  height: 50%;
+  width:100%;
+  margin:5px 0;
+  background-color: rgba(255,255,255,0.7);
+}
+
+.emal{
+  float: right;
+}
+
+#content {
+  margin: 0 auto;
+  padding:5%;
+  text-color: white;
+}
+
+.btnalign{
+  padding-left: 40%;
+  padding-right: 50%;
+}
+
+#WelloLogo {
+	padding-top: 7% ;
+}
+
+.fulltext{
+  padding-top: 15px;
+}
+
+.mdl-textfield{
+	padding-right: 15px;
+	width: 275px;
+}
+
+.mdl-textfield__input {
+  border-bottom: 1px solid rgba(255,255,255,1);
+	font-size:14px;
+	color: rgba(0,0,255,0.75);
+}
+
+.mdl-button--accent.mdl-button--accent.mdl-button--raised{
+    background-color: rgb(255,182,193);  /*button color*/
+}
+
+.mdl-textfield__label{
+	color:rgba(0,0,0,.5);
+	font-size:12px;  /* inputting text */
+}
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label{
+	font-size:11px;	/* label font after focusing input */
+}
+
+.mdl-textfield.is-focused .mdl-textfield__label:after{
+	visibility:hidden;
+}
+
+@media (max-width: 768px) {
+  #WelloLogo {
+  	padding-top: 1% ;
+  	//margin-right: 30% ;
+  	/*margin-bottom: 10px ;*/
+  }
+  .emal{
+    float: none;
+  }
+
+.fulltext{
+  padding-left: 25%;
+  padding-top: 15px;
+}
+}
+
+@media (max-width: 500px){
+  .fulltext{
+    padding-left: 0px;
+  }
+}
